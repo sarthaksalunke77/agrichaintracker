@@ -1,0 +1,226 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ──────────────────────────────────────
+   Base Styles
+────────────────────────────────────── */
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-dark-900 text-gray-100 font-sans antialiased;
+    background: radial-gradient(ellipse at top left, #052e16 0%, #030712 40%, #0a0f1e 100%);
+    min-height: 100vh;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-dark-800;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary-700 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary-500;
+  }
+
+  ::selection {
+    @apply bg-primary-600/40 text-primary-100;
+  }
+}
+
+/* ──────────────────────────────────────
+   Component Styles
+────────────────────────────────────── */
+@layer components {
+  /* Glass Card */
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300;
+  }
+
+  .glass-card-hover:hover {
+    @apply border-primary-500/30 bg-white/10;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(34, 197, 94, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+    transform: translateY(-2px);
+  }
+
+  /* Primary Button */
+  .btn-primary {
+    @apply relative inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-600 to-emerald-500 text-white font-semibold rounded-xl transition-all duration-200 overflow-hidden;
+    box-shadow: 0 4px 15px rgba(22, 163, 74, 0.3);
+  }
+
+  .btn-primary:hover {
+    @apply from-primary-500 to-emerald-400;
+    box-shadow: 0 8px 25px rgba(22, 163, 74, 0.5);
+    transform: translateY(-1px);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+
+  .btn-primary:disabled {
+    @apply opacity-50 cursor-not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* Secondary Button */
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-white/10 text-gray-200 font-semibold rounded-xl border border-white/20 transition-all duration-200;
+  }
+
+  .btn-secondary:hover {
+    @apply bg-white/20 border-white/30 text-white;
+    transform: translateY(-1px);
+  }
+
+  /* Input */
+  .input-field {
+    @apply w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-gray-100 placeholder-gray-500 transition-all duration-200 focus:outline-none focus:border-primary-500/60 focus:bg-white/10 focus:ring-1 focus:ring-primary-500/30;
+  }
+
+  /* Label */
+  .form-label {
+    @apply block text-sm font-medium text-gray-300 mb-1.5;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold;
+  }
+
+  .badge-harvested {
+    @apply badge bg-yellow-500/20 text-yellow-300 border border-yellow-500/30;
+  }
+
+  .badge-processed {
+    @apply badge bg-blue-500/20 text-blue-300 border border-blue-500/30;
+  }
+
+  .badge-transit {
+    @apply badge bg-orange-500/20 text-orange-300 border border-orange-500/30;
+  }
+
+  .badge-delivered {
+    @apply badge bg-green-500/20 text-green-300 border border-green-500/30;
+  }
+
+  /* Section heading */
+  .section-title {
+    @apply text-2xl font-display font-bold text-white;
+  }
+
+  /* Glow text */
+  .glow-text {
+    text-shadow: 0 0 20px rgba(34, 197, 94, 0.6), 0 0 40px rgba(34, 197, 94, 0.3);
+  }
+
+  /* Address pill */
+  .address-pill {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 bg-dark-500/60 border border-white/10 rounded-lg text-xs font-mono text-gray-400;
+  }
+}
+
+/* ──────────────────────────────────────
+   Utility Styles
+────────────────────────────────────── */
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-400 via-emerald-400 to-primary-300;
+  }
+
+  .border-gradient {
+    border-image: linear-gradient(135deg, #16a34a, #10b981) 1;
+  }
+
+  .bg-mesh {
+    background-image: radial-gradient(at 40% 20%, hsla(158, 64%, 15%, 0.6) 0px, transparent 50%),
+      radial-gradient(at 80% 0%, hsla(145, 56%, 10%, 0.4) 0px, transparent 50%),
+      radial-gradient(at 0% 50%, hsla(158, 60%, 12%, 0.5) 0px, transparent 50%),
+      radial-gradient(at 80% 50%, hsla(220, 56%, 10%, 0.4) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, hsla(158, 58%, 8%, 0.6) 0px, transparent 50%);
+  }
+
+  .animate-in {
+    animation: fadeIn 0.4s ease-out, slideUp 0.4s ease-out;
+  }
+
+  .hover-lift {
+    @apply transition-transform duration-200 hover:-translate-y-1;
+  }
+}
+
+/* ──────────────────────────────────────
+   Animations
+────────────────────────────────────── */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+  animation: shimmer 2s infinite;
+}
+
+/* Timeline connector */
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 2px;
+  height: 40px;
+  background: linear-gradient(to bottom, #16a34a, transparent);
+  transform: translateX(-50%);
+}
+
+/* Blockchain grid background */
+.blockchain-bg {
+  background-image:
+    linear-gradient(rgba(22, 163, 74, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(22, 163, 74, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* QR code container */
+.qr-wrapper canvas {
+  border-radius: 12px;
+  padding: 16px;
+  background: white;
+}
+
+/* Toast override */
+.hot-toast {
+  @apply font-sans;
+}
