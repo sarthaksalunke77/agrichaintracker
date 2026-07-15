@@ -31,10 +31,10 @@ export const CONTRACT_ABI = [
 //  Contract Address — read from env (set by deploy script)
 // ─────────────────────────────────────────────────────────
 export const CONTRACT_ADDRESS =
-  import.meta.env.VITE_CONTRACT_ADDRESS || "0x9e79479b0273936F6e4724412fDe642a63bc0AC7";
+  import.meta.env.VITE_CONTRACT_ADDRESS || "";
 
 export const CHAIN_ID = parseInt(import.meta.env.VITE_CHAIN_ID || "11155111");
-export const RPC_URL = import.meta.env.VITE_RPC_URL || "https://rpc.sepolia.org";
+export const RPC_URL = import.meta.env.VITE_RPC_URL || "https://rpc.ankr.com/eth_sepolia";
 
 // ─────────────────────────────────────────────────────────
 //  State Enum mapping
@@ -47,6 +47,10 @@ export const STATE_ICONS = ["🌾", "⚙️", "🚛", "🏪"];
 //  Get read-only contract (no wallet needed)
 // ─────────────────────────────────────────────────────────
 export function getReadContract() {
+  if (typeof window !== "undefined" && window.ethereum) {
+    const provider = new ethers.BrowserProvider(window.ethereum);
+    return new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, provider);
+  }
   const provider = new ethers.JsonRpcProvider(RPC_URL);
   return new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, provider);
 }
