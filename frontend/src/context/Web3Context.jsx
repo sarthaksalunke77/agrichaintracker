@@ -29,7 +29,7 @@ export function Web3Provider({ children }) {
               params: [{
                 chainId: '0xaa36a7', // 11155111 in hex
                 chainName: 'Sepolia Testnet',
-                rpcUrls: ['https://rpc.sepolia.org'],
+                rpcUrls: ['https://sepolia.gateway.tenderly.co'],
                 nativeCurrency: {
                   name: 'Sepolia ETH',
                   symbol: 'ETH',
