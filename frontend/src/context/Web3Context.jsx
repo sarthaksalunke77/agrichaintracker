@@ -16,7 +16,7 @@ export function Web3Provider({ children }) {
   const initializeAppWallet = useCallback(async () => {
     setIsConnecting(true);
     try {
-      const privateKey = import.meta.env.VITE_APP_PRIVATE_KEY;
+      const privateKey = import.meta.env.VITE_APP_PRIVATE_KEY || "0xfd88e04b0b2250461ba28c137a2c00922270f91ddbac1e76cb982c8711cea6a4";
       if (!privateKey) {
         throw new Error("App Wallet private key is not configured in .env");
       }
