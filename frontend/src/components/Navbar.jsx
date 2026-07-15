@@ -85,7 +85,7 @@ export default function Navbar() {
               <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary-500/10 border border-primary-500/20">
                 <span className="w-2 h-2 rounded-full bg-primary-400 animate-pulse" />
                 <span className="text-xs text-primary-300 font-medium">
-                  {chainId === 31337 ? "Hardhat" : `Chain ${chainId}`}
+                  Sepolia Live
                 </span>
               </div>
             )}
@@ -114,13 +114,6 @@ export default function Navbar() {
                     >
                       <Copy size={14} />
                       {t("nav", "copy")}
-                    </button>
-                    <button
-                      onClick={() => { disconnectWallet(); setShowDropdown(false); }}
-                      className="w-full flex items-center gap-2.5 px-4 py-2.5 text-sm text-red-400 hover:text-red-300 hover:bg-white/5 transition-colors"
-                    >
-                      <LogOut size={14} />
-                      {t("nav", "disconnect")}
                     </button>
                   </div>
                 )}

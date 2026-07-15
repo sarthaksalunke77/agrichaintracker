@@ -34,7 +34,7 @@ export const CONTRACT_ADDRESS =
   import.meta.env.VITE_CONTRACT_ADDRESS || "";
 
 export const CHAIN_ID = parseInt(import.meta.env.VITE_CHAIN_ID || "11155111");
-export const RPC_URL = import.meta.env.VITE_RPC_URL || "https://ethereum-sepolia-rpc.publicnode.com";
+export const RPC_URL = import.meta.env.VITE_RPC_URL || "https://rpc.ankr.com/eth_sepolia";
 
 // ─────────────────────────────────────────────────────────
 //  State Enum mapping
