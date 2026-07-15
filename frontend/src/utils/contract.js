@@ -31,7 +31,7 @@ export const CONTRACT_ABI = [
 //  Contract Address — read from env (set by deploy script)
 // ─────────────────────────────────────────────────────────
 export const CONTRACT_ADDRESS =
-  import.meta.env.VITE_CONTRACT_ADDRESS || "";
+  import.meta.env.VITE_CONTRACT_ADDRESS || "0x9e79479b0273936F6e4724412fDe642a63bc0AC7";
 
 export const CHAIN_ID = parseInt(import.meta.env.VITE_CHAIN_ID || "11155111");
 export const RPC_URL = import.meta.env.VITE_RPC_URL || "https://rpc.ankr.com/eth_sepolia";
